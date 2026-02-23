@@ -1,4 +1,5 @@
 package com.cursoSpring.persistence.mapper;
+
 import com.cursoSpring.domain.Purchase;
 import com.cursoSpring.persistence.entity.Compra;
 import org.mapstruct.InheritInverseConfiguration;
@@ -11,7 +12,6 @@ import java.util.List;
 @Mapper(componentModel = "spring", uses = {PurchaseItemMapper.class})
 public interface PurchaseMapper {
 
-    @SuppressWarnings("MapstructReferenceInspection")
     @Mappings({
             @Mapping(source = "idCompra", target = "purchaseId"),
             @Mapping(source = "idCliente", target = "clientId"),
@@ -22,6 +22,7 @@ public interface PurchaseMapper {
             @Mapping(source = "productos", target = "items")
     })
     Purchase toPurchase(Compra compra);
+
     List<Purchase> toPurchases(List<Compra> compras);
 
     @InheritInverseConfiguration
