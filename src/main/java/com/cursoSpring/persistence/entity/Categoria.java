@@ -20,7 +20,6 @@ public class Categoria {
     @OneToMany(mappedBy = "categoria")
     private List<Producto> productos;
 
-
     public Integer getIdCategoria() {
         return idCategoria;
     }
