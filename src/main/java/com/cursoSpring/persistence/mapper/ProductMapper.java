@@ -11,8 +11,6 @@ import java.util.List;
 
 @Mapper(componentModel = "spring", uses = {CategoryMapper.class})
 public interface ProductMapper {
-
-    @SuppressWarnings("MapstructReferenceInspection")
     @Mappings({
             @Mapping(source = "idProducto", target = "productId"),
             @Mapping(source = "nombre", target = "name"),

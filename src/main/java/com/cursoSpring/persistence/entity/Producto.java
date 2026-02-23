@@ -3,40 +3,40 @@ package com.cursoSpring.persistence.entity;
 import jakarta.persistence.*;
 
 @Entity
-@Table(name="productos")
+@Table(name = "productos")
 public class Producto {
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name="id_producto")
+    @Column(name = "id_producto")
     private Integer idProducto;
 
     private String nombre;
 
-    @Column(name="id_categoria")
+    @Column(name = "id_categoria")
     private Integer idCategoria;
 
     @Column(name = "codigo_barras")
     private String codigoBarras;
 
-    @Column (name="precio_venta")
+    @Column(name = "precio_venta")
     private Double precioVenta;
 
-    @Column (name ="cantidad_stock")
+    @Column(name = "cantidad_stock")
     private Integer cantidadStock;
-
 
     private Boolean estado;
 
     @ManyToOne
-    @JoinColumn(name="id_categoria", insertable = false, updatable = false)
+    @JoinColumn(name = "id_categoria", insertable = false, updatable = false)
     private Categoria categoria;
 
-    public Boolean getEstado() {
-        return estado;
+    public Integer getIdProducto() {
+        return idProducto;
     }
 
-    public void setEstado(Boolean estado) {
-        this.estado = estado;
+    public void setIdProducto(Integer idProducto) {
+        this.idProducto = idProducto;
     }
 
     public String getNombre() {
@@ -45,14 +45,6 @@ public class Producto {
 
     public void setNombre(String nombre) {
         this.nombre = nombre;
-    }
-
-    public Integer getIdProducto() {
-        return idProducto;
-    }
-
-    public void setIdProducto(Integer idProducto) {
-        this.idProducto = idProducto;
     }
 
     public Integer getIdCategoria() {
@@ -87,4 +79,19 @@ public class Producto {
         this.cantidadStock = cantidadStock;
     }
 
+    public Boolean getEstado() {
+        return estado;
+    }
+
+    public void setEstado(Boolean estado) {
+        this.estado = estado;
+    }
+
+    public Categoria getCategoria() {
+        return categoria;
+    }
+
+    public void setCategoria(Categoria categoria) {
+        this.categoria = categoria;
+    }
 }

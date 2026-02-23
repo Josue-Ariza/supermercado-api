@@ -7,7 +7,6 @@ import org.mapstruct.Mapper;
 import org.mapstruct.Mapping;
 import org.mapstruct.Mappings;
 
-
 @Mapper(componentModel = "spring")
 public interface CategoryMapper {
     @Mappings({
@@ -17,9 +16,7 @@ public interface CategoryMapper {
     })
     Category toCategory(Categoria categoria);
 
-
-@SuppressWarnings("MapstructReferenceInspection")
-@InheritInverseConfiguration
-@Mapping(target = "productos", ignore = true)
+    @InheritInverseConfiguration
+    @Mapping(target = "productos", ignore = true)
     Categoria toCategoria(Category category);
 }
